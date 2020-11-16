@@ -1,0 +1,6 @@
+george_telegram_chatid:
+  name: Telegram chat id for George
+  initial: !secret telegram_georgechat_id
+vivian_telegram_chatid:
+  name: Telegram chat id for Vivian
+  initial: !secret telegram_vivianchat_id

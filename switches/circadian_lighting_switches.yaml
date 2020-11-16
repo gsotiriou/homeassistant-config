@@ -1,0 +1,13 @@
+- platform: circadian_lighting
+  min_brightness: 15
+  lights_ct:
+    - light.sink_lightstrip
+    - light.barcalounger_floor_lamp
+    - light.small_table_lamp
+    - light.table_lamp
+    - light.corner_floor_lamp
+    - light.tv_lightstrip
+    - light.george_s_bedside_lamp
+    - light.vivian_s_bedside_lamp
+  lights_brightness:
+    - light.gateway_light_34ce00853b6b

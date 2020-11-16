@@ -1,0 +1,110 @@
+- alias: 'Daily water heating'
+  trigger:
+    platform: time
+    at: "07:30"
+  mode: single
+  action:
+    - service: telegram_bot.send_message
+      data_template:
+        title: '🚿 *[Daily routine]*'
+        target:
+          - !secret telegram_groupchat_id
+        message: >
+          {%- if (is_state('input_boolean.george_morning_shower', 'on') and is_state('input_boolean.vivian_morning_shower', 'off')) -%}
+            *Shower schedule:* George I will heat some additional water up for your shower (1h).
+          {% elif (is_state('input_boolean.george_morning_shower', 'off') and is_state('input_boolean.vivian_morning_shower', 'on')) %}
+            *Shower schedule:* Vivian I will heat some additional water up for your shower (1h).
+          {% else %}
+            I will heat some water up for your day.
+          {% endif %}
+    - service: script.water_heating
+      data:
+        heating_time: >
+          {% if (is_state('input_boolean.george_morning_shower', 'on') or is_state('input_boolean.vivian_morning_shower', 'on')) %}
+            60
+          {% else %}
+            30
+          {% endif %}
+    - service: telegram_bot.send_message
+      data:
+        title: '🚿 *[Daily routine]*'
+        target:
+          - !secret telegram_groupchat_id
+        message: 'Water heating has finished.'
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.george_morning_shower
+          - input_boolean.vivian_morning_shower
+
+- alias: 'Daily shower schedule'
+  trigger:
+    platform: time
+    at: "22:30"
+  mode: single
+  action:
+    - service: TELEGRAM_BOT.SEND_MESSAGE
+      data:
+        title: '🚿 *[Daily routine]*'
+        message: 'Will you be taking a shower tomorrow morning?'
+        target:
+          - !secret telegram_georgechat_id
+          - !secret telegram_vivianchat_id
+        parse_mode: markdown
+        timeout: 1000
+        inline_keyboard:
+          - Yes:/morningshoweryes, No:/morningshowerno
+          - Remind me later:/morningshowerremindlater
+
+- alias: 'Daily window opening'
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.door_window_sensor_158d00019ff19a #Living room
+      - binary_sensor.door_window_sensor_158d0001a1e588 #Bedroom
+      - binary_sensor.door_window_sensor_158d00019da684 #Kitchen
+    to: "on"
+    for:
+      minutes: 15
+  mode: parallel
+  condition:
+    condition: template
+    value_template: >
+      {% if trigger.entity_id == "binary_sensor.door_window_sensor_158d00019ff19a" and is_state('input_boolean.living_room_ventilated', 'off') %}
+        true
+      {% elif trigger.entity_id == "binary_sensor.door_window_sensor_158d0001a1e588" and is_state('input_boolean.bedroom_ventilated', 'off') %}
+        true
+      {% elif trigger.entity_id == "binary_sensor.door_window_sensor_158d00019da684" and is_state('input_boolean.kitchen_ventilated', 'off') %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  action:
+    - service: input_boolean.turn_on
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == "binary_sensor.door_window_sensor_158d00019ff19a" %}
+            input_boolean.living_room_ventilated
+          {% elif trigger.entity_id == "binary_sensor.door_window_sensor_158d0001a1e588" %}
+            input_boolean.bedroom_ventilated
+          {% else %}
+            input_boolean.kitchen_ventilated
+          {% endif %}
+
+- alias: 'Daily ventilation reset'
+  trigger:
+    platform: time
+    at: "09:00"
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id:
+          - input_boolean.living_room_ventilated
+          - input_boolean.bedroom_ventilated
+          - input_boolean.kitchen_ventilated
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.living_room_ventilated
+          - input_boolean.bedroom_ventilated
+          - input_boolean.kitchen_ventilated

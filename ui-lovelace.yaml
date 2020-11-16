@@ -1,0 +1,167 @@
+title: Home
+views:
+  - title: Example
+    cards:
+      - type: picture-elements
+        title: Presence
+        image: /local/other/bg.jpg
+        elements:
+          - type: image
+            entity: person.george
+            image: /local/people/george.jpg
+            state_filter:
+              "not_home": grayscale(100%);
+            style:
+              width: 130px
+              height: 130px
+              left: 30%
+              top: 45%
+              border-radius: 50%
+          - type: state-label
+            entity: person.george
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+            style:
+              color: rgb(28,28,28)
+              top: 65%
+              left: 31%
+              font-weight: bold
+          - type: image
+            entity: person.vivian
+            image: /local/people/vivian.jpg
+            state_filter:
+              "not_home": grayscale(100%);
+            style:
+              width: 130px
+              height: 130px
+              left: 70%
+              top: 45%
+              border-radius: 50%
+          - type: state-label
+            entity: person.vivian
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+            style:
+              top: 65%
+              left: 70%
+              color: rgb(28,28,28)
+              font-weight: bold
+      - type: alarm-panel
+        entity: alarm_control_panel.alarm_panel
+      - type: thermostat
+        entity: climate.living_room_air_condition
+        name: Living room AC
+      - type: entities
+        title: All the lights
+        show_header_toggle: false
+        entities:
+          - light.front_door_light
+          - light.hallway_light
+          - light.ceiling_spotlight_1
+          - light.ceiling_spotlight_2
+          - light.ceiling_spotlight_3
+          - type: divider
+
+          - light.living_room_light
+          - light.corner_floor_lamp
+          - light.barcalounger_floor_lamp
+          - light.table_lamp
+          - light.small_table_lamp
+          - light.tv_lightstrip
+          - type: divider
+
+          - light.office_light
+          - light.george_s_desk_lightstrip
+          - light.vivian_s_desk_lightstrip
+          - type: divider
+
+          - light.kitchen_light
+          - light.sink_lightstrip
+          - type: divider
+
+          - light.bathroom_light
+          - type: divider
+
+          - light.bedroom_light
+          # - light.dresser
+          # - light.bed_head
+          - light.george_s_bedside_lamp
+          - light.vivian_s_bedside_lamp
+
+      - type: entities
+        title: All the sensors
+        show_header_toggle: false
+        entities:
+          - binary_sensor.motion_sensor_158d000200cf20
+          - sensor.temperature_158d00036b6413
+          - sensor.humidity_158d00036b6413
+          - type: divider
+
+          - binary_sensor.door_window_sensor_158d00019da684
+          - binary_sensor.motion_sensor_158d0001e47ef2
+          - sensor.temperature_158d00036b5151
+          - sensor.humidity_158d00036b5151
+          - binary_sensor.water_leak_sensor_158d0001bc23a2
+          - type: divider
+
+          - binary_sensor.motion_sensor_158d0001e43e19
+          - sensor.temperature_158d0001ab180d
+          - sensor.humidity_158d0001ab180d
+          - type: divider
+
+          - binary_sensor.door_window_sensor_158d0001a1e588
+          - binary_sensor.motion_sensor_158d0001ad6283
+          - sensor.temperature_158d0001fa8311
+          - sensor.humidity_158d0001fa8311
+          - type: divider
+
+          - binary_sensor.door_window_sensor_158d00019ff19a
+          - binary_sensor.motion_sensor_158d00034d0f66
+          - sensor.temperature_158d0002271a0a
+          - sensor.humidity_158d0002271a0a
+          - type: divider
+
+          - binary_sensor.door_window_sensor_158d0001a207a1
+          - binary_sensor.motion_sensor_158d0002348004
+          - type: divider
+
+          - sensor.illumination_158d0001ad6283
+          - sensor.illumination_158d0001e43e19
+          - sensor.illumination_158d0001e47ef2
+          - sensor.illumination_158d000200cf20
+          - sensor.illumination_158d00034d0f66
+          - sensor.illumination_34ce00853b6b
+
+      - type: entities
+        title: Multi sensors
+        show_header_toggle: false
+        entities:
+          - sensor.coordination_158d0002a6399b
+          - sensor.tilt_angle_158d0002a6399b
+          - sensor.bed_activity_158d0002a6399b
+          - binary_sensor.vibration_158d0002a6399b
+          - type: divider
+          
+          - sensor.coordination_158d0002a37959
+          - sensor.tilt_angle_158d0002a37959
+          - sensor.bed_activity_158d0002a37959
+          - binary_sensor.vibration_158d0002a37959
+      - type: entities
+        title: Energy usage
+        show_header_toggle: false
+        entities:
+          - sensor.livingroom_aircondition_wattage
+      - type: entities
+        title: Hass.io versions
+        show_header_toggle: false
+        entities:
+          - sensor.latest_version
+          - sensor.current_version
+      - type: entities
+        title: Circadian Lighting
+        show_header_toggle: false
+        entities:
+          - switch.circadian_lighting_circadian_lighting
+          - switch.sonoff

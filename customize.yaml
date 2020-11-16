@@ -1,0 +1,216 @@
+########################################
+#            OTHER SWITCHES            #
+########################################
+switch.sonoff:
+    friendly_name: Boiler
+########################################
+#     WIRELESS WALL SMART SWITCHES     #
+########################################
+binary_sensor.wall_switch_left_158d00023391a5:
+    friendly_name: Living room dummy switch (L)
+
+binary_sensor.wall_switch_right_158d00023391a5:
+    friendly_name: Living room dummy switch (R)
+
+binary_sensor.wall_switch_both_158d00023391a5:
+    friendly_name: Living room dummy control (Both)
+
+binary_sensor.wall_switch_158d0001576456:
+    friendly_name: Bedroom lights dummy control
+
+binary_sensor.wall_switch_158d00013ff43e:
+    friendly_name: Doorbell dummy control
+
+binary_sensor.switch_158d0001d8de8e:
+    friendly_name: Alarm dummy control
+
+binary_sensor.switch_158d000186db32:
+    friendly_name: Bedroom dummy distress button
+########################################
+#    WALL ELECTRICAL SMART SWITCHES    #
+########################################
+switch.wall_switch_ln_158d0001f2ada8:
+    friendly_name: Front door
+
+switch.wall_switch_ln_158d0001c2b51e:
+    friendly_name: Bedroom
+
+switch.wall_switch_ln_158d0001f987c1:
+    friendly_name: Hallway
+
+switch.wall_switch_ln_158d0001f987c2:
+    friendly_name: Office
+
+switch.wall_switch_right_158d00034d096b:
+    friendly_name: Bathroom
+
+switch.wall_switch_left_158d00034d096b:
+    friendly_name: Secondary Hallway
+
+switch.wall_switch_ln_158d0001f987fc:
+    friendly_name: Kitchen
+
+switch.wall_switch_ln_158d0001f993e2:
+    friendly_name: Living room
+########################################
+#         XIAOMI GATEWAY(S)            #
+########################################
+light.gateway_light_34ce00853b6b:
+    friendly_name: Gateway
+########################################
+#     MAGNETIC DOOR WINDOW SENSORS     #
+########################################
+binary_sensor.door_window_sensor_158d00019ff19a:
+    friendly_name: Living room window
+    device_class: window
+
+binary_sensor.door_window_sensor_158d00019da684:
+    friendly_name: Kitchen window
+    device_class: window
+
+binary_sensor.door_window_sensor_158d0001a1e588:
+    friendly_name: Bedroom window
+    device_class: window
+
+binary_sensor.door_window_sensor_158d0001a207a1:
+    friendly_name: Front door
+    device_class: door
+########################################
+#           MOVEMENT SENSORS           #
+########################################
+binary_sensor.motion_sensor_158d000200cf20:
+    friendly_name: Office movement
+
+binary_sensor.motion_sensor_158d0001e47ef2:
+    friendly_name: Kitchen movement
+
+binary_sensor.motion_sensor_158d0001e43e19:
+    friendly_name: Bathroom movement
+
+binary_sensor.motion_sensor_158d0001ad6283:
+    friendly_name: Bedroom movement
+
+binary_sensor.motion_sensor_158d00034d0f66:
+    friendly_name: Living room movement
+
+binary_sensor.motion_sensor_158d0002348004:
+    friendly_name: Hallway movement
+########################################
+#         ILLUMINATION SENSORS         #
+########################################
+sensor.illumination_158d000200cf20:
+    friendly_name: Office illumination
+
+sensor.illumination_158d0001e47ef2:
+    friendly_name: Kitchen illumination
+
+sensor.illumination_158d0001e43e19:
+    friendly_name: Bathroom illumination
+
+sensor.illumination_158d0001ad6283:
+    friendly_name: Bedroom illumination
+
+sensor.illumination_158d00034d0f66:
+    friendly_name: Living room illumination
+
+sensor.illumination_158d0002348004:
+    friendly_name: Hallway illumination
+
+sensor.illumination_34ce00853b6b:
+    friendly_name: Hallway illumination (gateway)
+########################################
+#            LEAKAGE SENSORS           #
+########################################
+binary_sensor.water_leak_sensor_158d0001bc23a2:
+    friendly_name: Sink leakage
+########################################
+#         TEMPERATURE SENSORS          #
+########################################
+sensor.temperature_158d0001ab180d:
+    friendly_name: Bathroom temperature
+
+sensor.temperature_158d0001fa8311:
+    friendly_name: Bedroom temperature
+
+sensor.temperature_158d0002271a0a:
+    friendly_name: Living room temperature
+
+sensor.temperature_158d00036b6413:
+    friendly_name: Office temperature
+
+sensor.temperature_158d00036b5151:
+    friendly_name: Kitchen temperature
+
+sensor.hallway_temperature_temperature:
+    friendly_name: Hallway temperature
+########################################
+#          HUMIDITY SENSORS            #
+########################################
+sensor.humidity_158d0001ab180d:
+    friendly_name: Bathroom humidity
+
+sensor.humidity_158d0001fa8311:
+    friendly_name: Bedroom humidity
+
+sensor.humidity_158d00036b6413:
+    friendly_name: Office humidity
+
+sensor.humidity_158d0002271a0a:
+    friendly_name: Living room humidity
+
+sensor.humidity_158d00036b5151:
+    friendly_name: Kitchen humidity
+
+sensor.hallway_temperature_humidity:
+    friendly_name: Hallway humidity
+########################################
+#          PRESSURE SENSORS            #
+########################################
+sensor.pressure_158d0001ab180d:
+    friendly_name: Bathroom pressure
+
+sensor.pressure_158d0001fa8311:
+    friendly_name: Bedroom pressure
+
+sensor.pressure_158d00036b6413:
+    friendly_name: Office pressure
+
+sensor.pressure_158d0002271a0a:
+    friendly_name: Living room pressure
+
+sensor.pressure_158d00036b5151:
+    friendly_name: Kitchen pressure
+########################################
+#            MULTI SENSORS             #
+########################################
+sensor.coordination_158d0002a6399b:
+    friendly_name: Vivian's Coordination sensor 
+
+sensor.coordination_158d0002a37959:
+    friendly_name: George's Coordination sensor 
+
+sensor.tilt_angle_158d0002a6399b:
+    friendly_name: Vivian's Angle sensor 
+
+sensor.tilt_angle_158d0002a37959:
+    friendly_name: George's Angle sensor 
+
+sensor.bed_activity_158d0002a6399b:
+    friendly_name: Vivian's Bed Activity sensor 
+
+sensor.bed_activity_158d0002a37959:
+    friendly_name: George's Bed Activity sensor 
+
+binary_sensor.vibration_158d0002a6399b:
+    friendly_name: Vivian's Vibration sensor 
+
+binary_sensor.vibration_158d0002a37959:
+    friendly_name: George's Vibration sensor 
+########################################
+#         CUBE MULTI SENSORS           #
+########################################
+binary_sensor.cube_158d0001020262:
+    friendly_name: Vivian's cube
+
+binary_sensor.cube_158d000103a303:
+    friendly_name: George's cube

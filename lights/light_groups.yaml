@@ -1,0 +1,6 @@
+- platform: group
+  name: Ceiling spotlights
+  entities:
+    - light.ceiling_spotlight_1
+    - light.ceiling_spotlight_2
+    - light.ceiling_spotlight_3

@@ -1,0 +1,7 @@
+- platform: version
+  name: Latest Version
+  image: raspberrypi3
+  source: hassio
+- platform: version
+  name: Current Version
+  source: local

@@ -1,0 +1,15 @@
+george_morning_shower:
+  name: State boolean of whether George needs a next morning shower or not
+  initial: false
+vivian_morning_shower:
+  name: State boolean of whether Vivian needs a next morning shower or not
+  initial: false
+living_room_ventilated:
+  name: State boolean of whether living room is ventilated for the day
+  initial: false
+bedroom_ventilated:
+  name: State boolean of whether bedroom is ventilated for the day
+  initial: false
+kitchen_ventilated:
+  name: State boolean of whether kitchen is ventilated for the day
+  initial: false

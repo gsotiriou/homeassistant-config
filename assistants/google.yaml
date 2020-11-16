@@ -1,0 +1,109 @@
+project_id: !secret google_project_id
+service_account: !include ../json_authentication/google-assistant-svc-acc.json
+report_state: true
+expose_by_default: false
+entity_config:
+
+  script.wash_head:
+    name: wash head script
+    expose: true
+
+  script.take_bath:
+    name: take bath script
+    expose: true
+
+  script.take_shower:
+    name: take shower script
+    expose: true
+
+  vacuum.xiaomi_vacuum_cleaner:
+    name: Vacuum
+    expose: true
+
+  switch.sonoff:
+    name: Boiler
+    expose: true
+
+  light.gateway_light_34ce00853b6b:
+    name: Gateway
+    expose: true
+
+  light.front_door_light:
+    name: Front door light
+    expose: true
+
+  light.hallway_light:
+    name: Main light
+    expose: true
+
+  light.living_room_light:
+    name: Main light
+    expose: true
+
+  light.office_light:
+    name: Main light
+    expose: true
+
+  light.kitchen_light:
+    name: Main light
+    expose: true
+
+  light.bathroom_light:
+    name: Main light
+    expose: true
+
+  light.bedroom_light:
+    name: Main light
+    expose: true
+
+  # light.dresser:
+  #   name: dresser light
+  #   expose: true
+
+  light.george_s_desk_lightstrip:
+    name: George's lightstrip
+    expose: true
+
+  light.vivian_s_desk_lightstrip:
+    name: Vivian's lightstrip
+    expose: true
+
+  light.corner_floor_lamp:
+    name: Corner floor lamp
+    expose: true
+
+  light.barcalounger_floor_lamp:
+    name: Barcalounger floor lamp
+    expose: true
+
+  light.small_table_lamp:
+    name: Small table lamp
+    expose: true
+
+  light.table_lamp:
+    name: Table lamp
+    expose: true
+
+  light.tv_lightstrip:
+    name: TV lightstrip
+    expose: true
+
+  light.sink_lightstrip:
+    name: Sink lightstrip
+    expose: true
+
+  light.ceiling_spotlights:
+    name: Ceiling spotlights
+    expose: true
+
+  light.george_s_bedside_lamp:
+    name: George's bedside lamp
+    expose: true
+
+  light.vivian_s_bedside_lamp:
+    name: Vivian's bedside lamp
+    expose: true
+
+  # light.bed_head:
+  #   name: bed head light
+  #   expose: true

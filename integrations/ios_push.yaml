@@ -1,0 +1,17 @@
+push:
+  categories:
+    - name: Lighting
+      identifier: 'lighting'
+      actions:
+        - identifier: 'TURN_OFF_LIGHT'
+          title: 'Turn off light'
+          activationMode: 'background'
+          authenticationRequired: false
+          destructive: true
+          behavior: 'default'
+        - identifier: 'KEEP_LIGHT_ON'
+          title: 'Keep light on'
+          activationMode: 'background'
+          authenticationRequired: false
+          destructive: false
+          behavior: 'default'

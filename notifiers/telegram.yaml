@@ -1,0 +1,9 @@
+- platform: telegram
+  name: telegram_hassnest_group
+  chat_id: !secret telegram_groupchat_id
+- platform: telegram
+  name: telegram_george
+  chat_id: !secret telegram_georgechat_id
+- platform: telegram
+  name: telegram_vivian
+  chat_id: !secret telegram_vivianchat_id

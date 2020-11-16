@@ -1,0 +1,15 @@
+- platform: switch
+  name: Living room light
+  entity_id: switch.wall_switch_ln_158d0001f993e2
+- platform: switch
+  name: Office light
+  entity_id: switch.wall_switch_ln_158d0001f987c2
+- platform: switch
+  name: Kitchen light
+  entity_id: switch.wall_switch_ln_158d0001f987fc
+- platform: switch
+  name: Bathroom light
+  entity_id: switch.wall_switch_right_158d00034d096b
+- platform: switch
+  name: Bedroom light
+  entity_id: switch.wall_switch_ln_158d0001c2b51e

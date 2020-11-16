@@ -1,0 +1,57 @@
+- alias: 'Doorbell notification'
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.wall_switch_158d00013ff43e
+        click_type: single
+  action:
+    - service: notify.telegram_hassnest_group
+      data:
+        message: 'The doorbell is ringing.'
+
+- alias: 'Update Available Notifications'
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sensor.latest_version
+  condition:
+    condition: template
+    value_template: "{{states('sensor.latest_version') | replace('.','') | int > states('sensor.current_version') | replace('.','') | int}}"
+  action:
+    service: notify.mobile_app_mi_6
+    data:
+      title: '[Important]'
+      message: 'Update for Home Assistant is available.'
+
+- alias: 'Hass Startup Notification'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: notify.mobile_app_mi_6
+    data:
+      title: '[Important]'
+      message: 'Home assistant restart completed successfully'
+
+- alias: 'Bedroom Distress Notification'
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000186db32
+        click_type: single
+  action:
+    - service: notify.html_notify_chrome_george
+      data:
+        title: '[Important]'
+        message: 'It appears that someone is in distress in the bedroom'
+    - service: notify.mobile_app_mi_6
+      data:
+        title: '[Important]'
+        message: 'It appears that someone is in distress in the bedroom'
+    - service: notify.mobile_app_paraskevis_iphone
+      data:
+        title: '[Important]'
+        message: 'It appears that someone is in distress in the bedroom'

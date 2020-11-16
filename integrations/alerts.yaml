@@ -1,0 +1,38 @@
+living_room_not_ventilated:
+  name: 'Living room ventilation'
+  entity_id: input_boolean.living_room_ventilated
+  state: 'off'
+  repeat: 45
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - telegram_hassnest_group
+  title: '🌪️ *[Daily choirs]*'
+  message: 'The living room has not been ventilated today. Try opening its window for at least *15mins*.'
+  done_message: 'The living room has been adequately ventilated. You may now close the window.'
+
+bedroom_not_ventilated:
+  name: 'Bedroom ventilation'
+  entity_id: input_boolean.bedroom_ventilated
+  state: 'off'
+  repeat: 45
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - telegram_hassnest_group
+  title: '🌪️ *[Daily choirs]*'
+  message: 'The bedroom has not been ventilated today. Try opening its window for at least *15mins*.'
+  done_message: 'The bedroom has been adequately ventilated. You may now close the window.'
+
+kitchen_not_ventilated:
+  name: 'Kitchen ventilation'
+  entity_id: input_boolean.kitchen_ventilated
+  state: 'off'
+  repeat: 45
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - telegram_hassnest_group
+  title: '🌪️ *[Daily choirs]*'
+  message: 'The kitchen has not been ventilated today. Try opening its window for at least *15mins*.'
+  done_message: 'The kitchen has been adequately ventilated. You may now close the window.'

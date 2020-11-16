@@ -1,0 +1,73 @@
+- alias: 'Daily shower schedule - Remind later'
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: '/morningshowerremindlater'
+  mode: parallel
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: '🔁 I will remind you again in 30 minutes.'
+    - service: telegram_bot.edit_replymarkup
+      data_template:
+        message_id: '{{ trigger.event.data.message.message_id }}'
+        chat_id: '{{ trigger.event.data.user_id }}'
+        inline_keyboard: []
+    - delay:
+        minutes: 30
+    - service: telegram_bot.send_message
+      data:
+        title: '🔁 *[Daily routine]*'
+        message: 'Will you be taking a shower tomorrow morning?'
+        target: '{{ trigger.event.data.chat_id }}'
+        parse_mode: markdown
+        timeout: 1000
+        inline_keyboard:
+          - Yes:/morningshoweryes, No:/morningshowerno
+          - Remind me later:/morningshowerremindlater
+
+- alias: 'Daily shower schedule - Accept'
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: '/morningshoweryes'
+  mode: parallel
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: '🚿 Shower schedule for tomorrow morning updated.'
+    - service: input_boolean.turn_on
+      data_template:
+        entity_id: >
+          {% if states('input_text.george_telegram_chatid') == trigger.event.data.chat_id|string %}
+            input_boolean.george_morning_shower
+          {% else %}
+            input_boolean.vivian_morning_shower
+          {% endif %}
+    - service: telegram_bot.edit_replymarkup
+      data_template:
+        message_id: '{{ trigger.event.data.message.message_id }}'
+        chat_id: '{{ trigger.event.data.user_id }}'
+        inline_keyboard: []
+
+- alias: 'Daily shower schedule - Decline'
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: '/morningshowerno'
+  mode: parallel
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: '🚿 Shower schedule for tomorrow morning updated.'
+    - service: telegram_bot.edit_replymarkup
+      data_template:
+        message_id: '{{ trigger.event.data.message.message_id }}'
+        chat_id: '{{ trigger.event.data.user_id }}'
+        inline_keyboard: []

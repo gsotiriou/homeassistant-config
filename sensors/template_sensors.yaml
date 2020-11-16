@@ -1,0 +1,7 @@
+- platform: template
+  sensors:
+    livingroom_aircondition_wattage:
+      friendly_name: 'Living room AC load'
+      value_template: '{{ states.climate.living_room_air_condition.attributes.load_power }}'
+      unit_of_measurement: 'W'
+      device_class: power

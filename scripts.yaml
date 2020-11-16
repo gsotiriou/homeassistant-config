@@ -1,0 +1,43 @@
+wash_head:
+  sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.sonoff
+      - delay:
+          minutes: 10
+      - service: switch.turn_off
+        data:
+          entity_id: switch.sonoff
+
+take_shower:
+  sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.sonoff
+      - delay:
+          minutes: 30
+      - service: switch.turn_off
+        data:
+          entity_id: switch.sonoff
+
+take_bath:
+  sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.sonoff
+      - delay:
+          hours: 1
+      - service: switch.turn_off
+        data:
+          entity_id: switch.sonoff
+
+water_heating:
+  sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.sonoff
+      - delay:
+          minutes: "{{ heating_time }}"
+      - service: switch.turn_off
+        data:
+          entity_id: switch.sonoff

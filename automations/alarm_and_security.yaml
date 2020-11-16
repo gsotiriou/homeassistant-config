@@ -1,0 +1,122 @@
+- alias: 'Arming the alarm alert'
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.alarm_panel
+    to: 'armed_home'
+  action:
+    - service: tts.google_cloud_say
+      data:
+        entity_id: media_player.living_room_speaker
+        message: "Alarm has been armed."
+    - service: notify.telegram_hassnest_group
+      data:
+        message: "Alarm has been armed."
+
+- alias: 'Trigger alarm while armed home'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d00019ff19a
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d00019da684
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001a1e588
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001a207a1
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.alarm_panel
+    state: armed_home
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      data:
+        entity_id: alarm_control_panel.alarm_panel
+    - service: notify.telegram_hassnest_group
+      data:
+        message: "Alarm has been triggered."
+
+- alias: 'Alarm is triggered'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarm_panel
+      to: 'triggered'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.living_room_speaker
+          - media_player.kitchen_speaker
+          - media_player.bedroom_speaker
+        volume_level: 1.0
+    - service: media_player.play_media
+      data:
+        entity_id:
+          - media_player.living_room_speaker
+          - media_player.kitchen_speaker
+          - media_player.bedroom_speaker
+        media_content_id: https://hass-nestio.duckdns.org:88/local/other/siren.mp3
+        media_content_type: audio/mp3
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: 34:CE:00:85:3B:6B
+        ringtone_id: 10002
+        ringtone_vol: 100
+
+- alias: 'Alarm is disarmed'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarm_panel
+      to: 'disarmed'
+  action:
+    - service: notify.telegram_hassnest_group
+      data:
+        message: "Alarm has been disarmed."
+    - condition: template
+      value_template: "{{ is_state('media_player.living_room_speaker', 'playing') }}"
+    - service_template: media_player.media_stop
+      data:
+        entity_id:
+          - media_player.living_room_speaker
+          - media_player.kitchen_speaker
+          - media_player.bedroom_speaker
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.living_room_speaker
+          - media_player.kitchen_speaker
+          - media_player.bedroom_speaker
+        volume_level: 0.6
+    - service_template: xiaomi_aqara.stop_ringtone
+      data:
+        gw_mac: 34:CE:00:85:3B:6B
+
+- alias: 'Living room light silent operation'
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_both_158d00023391a5
+      click_type: both
+  action:
+    - service: notify.telegram_george
+      data:
+        title: '[Important]'
+        message: "The living room silent operation has been triggered"
+    - service: notify.telegram_vivian
+      data:
+        title: '[Important]'
+        message: "The living room silent operation has been triggered"
+    - service: light.toggle
+      entity_id:
+        - light.small_table
+        - light.table
+        - light.barcalounger
+        - light.tv
+        - light.floodlight

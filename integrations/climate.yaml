@@ -1,0 +1,6 @@
+- platform: xiaomi_miio_airconditioningcompanion
+  name: Living room air-condition
+  host: 192.168.1.168
+  token: !secret climate_token
+  target_sensor: sensor.temperature_158d0002271a0a
+  scan_interval: 60

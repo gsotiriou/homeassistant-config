@@ -1,0 +1,3 @@
+server_port: !secret ha_server_port
+ssl_certificate: /ssl/fullchain.pem
+ssl_key: /ssl/privkey.pem
