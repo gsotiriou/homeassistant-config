@@ -22,7 +22,9 @@ script:              !include scripts.yaml
 homekit:             !include assistants/siri.yaml
 climate:             !include integrations/climate.yaml
 yeelight:            !include integrations/yeelight.yaml
+input_text:          !include integrations/input_text.yaml
 telegram_bot:        !include integrations/telegram_bot.yaml
+input_boolean:       !include integrations/input_booleans.yaml
 google_assistant:    !include assistants/google.yaml
 circadian_lighting:  !include integrations/circadian.yaml
 alarm_control_panel: !include integrations/alarm_cpanel.yaml

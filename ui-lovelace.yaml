@@ -2,52 +2,6 @@ title: Home
 views:
   - title: Example
     cards:
-      - type: picture-elements
-        title: Presence
-        image: /local/other/bg.jpg
-        elements:
-          - type: image
-            entity: person.george
-            image: /local/people/george.jpg
-            state_filter:
-              "not_home": grayscale(100%);
-            style:
-              width: 130px
-              height: 130px
-              left: 30%
-              top: 45%
-              border-radius: 50%
-          - type: state-label
-            entity: person.george
-            tap_action: none
-            hold_action: none
-            double_tap_action: none
-            style:
-              color: rgb(28,28,28)
-              top: 65%
-              left: 31%
-              font-weight: bold
-          - type: image
-            entity: person.vivian
-            image: /local/people/vivian.jpg
-            state_filter:
-              "not_home": grayscale(100%);
-            style:
-              width: 130px
-              height: 130px
-              left: 70%
-              top: 45%
-              border-radius: 50%
-          - type: state-label
-            entity: person.vivian
-            tap_action: none
-            hold_action: none
-            double_tap_action: none
-            style:
-              top: 65%
-              left: 70%
-              color: rgb(28,28,28)
-              font-weight: bold
       - type: alarm-panel
         entity: alarm_control_panel.alarm_panel
       - type: thermostat
@@ -165,3 +119,4 @@ views:
         entities:
           - switch.circadian_lighting_circadian_lighting
           - switch.sonoff
+          - switch.bathroom_plug
