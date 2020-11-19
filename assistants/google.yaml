@@ -16,6 +16,10 @@ entity_config:
     name: take shower script
     expose: true
 
+  climate.living_room_air_condition:
+    name: Living room air-condition
+    expose: true
+
   vacuum.xiaomi_vacuum_cleaner:
     name: Vacuum
     expose: true
