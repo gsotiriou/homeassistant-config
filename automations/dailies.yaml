@@ -90,6 +90,17 @@
           {% else %}
             input_boolean.kitchen_ventilated
           {% endif %}
+    - service: notify.telegram_hassnest_group
+      data_template:
+        title: '🌪️ *[Daily choirs]*'
+        message: >
+          {% if trigger.entity_id == "binary_sensor.door_window_sensor_158d00019ff19a" %}
+            The living room has been adequately ventilated. You may now close the window.
+          {% elif trigger.entity_id == "binary_sensor.door_window_sensor_158d0001a1e588" %}
+            The bedroom has been adequately ventilated. You may now close the window.
+          {% else %}
+            The kitchen has been adequately ventilated. You may now close the window.
+          {% endif %}          
 
 - alias: 'Daily ventilation reset'
   trigger:
