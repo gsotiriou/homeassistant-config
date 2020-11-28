@@ -1,0 +1,7 @@
+home_ventilation:
+  name: Home ventilation
+  all: true
+  entities:
+    - input_boolean.living_room_ventilated
+    - input_boolean.bedroom_ventilated
+    - input_boolean.kitchen_ventilated

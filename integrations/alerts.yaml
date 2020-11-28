@@ -1,6 +1,6 @@
-living_room_not_ventilated:
-  name: 'Living room ventilation'
-  entity_id: input_boolean.living_room_ventilated
+home_not_ventilated:
+  name: 'Home ventilation'
+  entity_id: group.home_ventilation
   state: 'off'
   repeat: 45
   can_acknowledge: true
@@ -8,31 +8,23 @@ living_room_not_ventilated:
   notifiers:
     - telegram_hassnest_group
   title: '🌪️ *[Daily choirs]*'
-  message: 'The living room has not been ventilated today. Try opening its window for at least *15mins*.'
-  done_message: 'The living room has been adequately ventilated. You may now close the window.'
+  message: |
+  
+    These rooms have not been ventilated today:
 
-bedroom_not_ventilated:
-  name: 'Bedroom ventilation'
-  entity_id: input_boolean.bedroom_ventilated
-  state: 'off'
-  repeat: 45
-  can_acknowledge: true
-  skip_first: false
-  notifiers:
-    - telegram_hassnest_group
-  title: '🌪️ *[Daily choirs]*'
-  message: 'The bedroom has not been ventilated today. Try opening its window for at least *15mins*.'
-  done_message: 'The bedroom has been adequately ventilated. You may now close the window.'
-
-kitchen_not_ventilated:
-  name: 'Kitchen ventilation'
-  entity_id: input_boolean.kitchen_ventilated
-  state: 'off'
-  repeat: 45
-  can_acknowledge: true
-  skip_first: false
-  notifiers:
-    - telegram_hassnest_group
-  title: '🌪️ *[Daily choirs]*'
-  message: 'The kitchen has not been ventilated today. Try opening its window for at least *15mins*.'
-  done_message: 'The kitchen has been adequately ventilated. You may now close the window.'
+    {% if is_state('input_boolean.kitchen_ventilated', 'on') -%}
+      ✔️ *Kitchen*
+    {% else %}
+      ❌ *Kitchen*
+    {% endif %}
+    {%- if is_state('input_boolean.living_room_ventilated', 'on') -%}
+      ✔️ *Living room*
+    {% else %}
+      ❌ *Living room*
+    {% endif %}
+    {%- if is_state('input_boolean.bedroom_ventilated', 'on') -%}
+      ✔️ *Bedroom*
+    {% else %}
+      ❌ *Bedroom*
+    {% endif %}
+    Try opening their respective windows for at least *15mins*.
