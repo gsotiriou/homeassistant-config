@@ -2,15 +2,28 @@ home_not_ventilated:
   name: 'Home ventilation'
   entity_id: group.home_ventilation
   state: 'off'
-  repeat: 45
+  repeat: 90
   can_acknowledge: true
   skip_first: false
   notifiers:
     - telegram_hassnest_group
   title: '🌪️ *[Daily choirs]*'
+  data:
+    inline_keyboard: >
+      {% set ns = namespace(items=[ 'Force ventilate all rooms:/houseforceventilate' ]) %}
+      {% if is_state('input_boolean.kitchen_ventilated', 'off') %}
+        {% set ns.items = ns.items + [ 'Force ventilate kitchen:/kitchenforceventilate' ] %}
+      {% endif %}
+      {% if is_state('input_boolean.living_room_ventilated', 'off') %}
+        {% set ns.items = ns.items + [ 'Force ventilate living room:/livingroomforceventilate' ] %}
+      {% endif %}
+      {% if is_state('input_boolean.bedroom_ventilated', 'off') %}
+        {% set ns.items = ns.items + [ 'Force ventilate bedroom:/bedroomforceventilate' ] %}
+      {% endif %}
+      {{ ns.items }}
   message: |
   
-    These rooms have not been ventilated today:
+    Room ventilation status:
 
     {% if is_state('input_boolean.kitchen_ventilated', 'on') -%}
       ✔️ *Kitchen*
