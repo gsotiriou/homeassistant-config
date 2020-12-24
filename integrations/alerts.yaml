@@ -6,25 +6,10 @@ home_not_ventilated:
   can_acknowledge: true
   skip_first: false
   notifiers:
-    - telegram_hassnest_group
+    - telegram_george
   title: '🌪️ *[Daily choirs]*'
-  data:
-    inline_keyboard: >
-      {% set ns = namespace(items=[ 'Force ventilate all rooms:/houseforceventilate' ]) %}
-      {% if is_state('input_boolean.kitchen_ventilated', 'off') %}
-        {% set ns.items = ns.items + [ 'Force ventilate kitchen:/kitchenforceventilate' ] %}
-      {% endif %}
-      {% if is_state('input_boolean.living_room_ventilated', 'off') %}
-        {% set ns.items = ns.items + [ 'Force ventilate living room:/livingroomforceventilate' ] %}
-      {% endif %}
-      {% if is_state('input_boolean.bedroom_ventilated', 'off') %}
-        {% set ns.items = ns.items + [ 'Force ventilate bedroom:/bedroomforceventilate' ] %}
-      {% endif %}
-      {{ ns.items }}
   message: |
-  
     Room ventilation status:
-
     {% if is_state('input_boolean.kitchen_ventilated', 'on') -%}
       ✔️ *Kitchen*
     {% else %}
@@ -41,3 +26,16 @@ home_not_ventilated:
       ❌ *Bedroom*
     {% endif %}
     Try opening their respective windows for at least *15mins*.
+  data:
+    inline_keyboard: |
+      {%- set ns = namespace(items=[ 'Force ventilate all rooms:/houseforceventilate' ]) -%}
+      {%- if is_state('input_boolean.kitchen_ventilated', 'off') -%}
+        {%- set ns.items = ns.items + [ 'Force ventilate kitchen:/kitchenforceventilate' ] -%}
+      {%- endif -%}
+      {%- if is_state('input_boolean.living_room_ventilated', 'off') -%}
+        {%- set ns.items = ns.items + [ 'Force ventilate living room:/livingroomforceventilate' ] -%}
+      {%- endif -%}
+      {%- if is_state('input_boolean.bedroom_ventilated', 'off') -%}
+        {%- set ns.items = ns.items + [ 'Force ventilate bedroom:/bedroomforceventilate' ] -%}
+      {%- endif -%}
+      {{ ns.items }}
