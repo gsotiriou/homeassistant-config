@@ -1,43 +1,43 @@
 - alias: 'Living room ambient lights toggle'
   trigger:
   - platform: event
-    event_type: xiaomi_aqara.click
+    event_type: deconz_event
     event_data:
-      entity_id: binary_sensor.wall_switch_right_158d00023391a5
-      click_type: single
+      id: lr_dummy_main
+      event: 2002
   action:
     service: light.toggle
     entity_id:
       - light.tv_lightstrip
-      - light.corner_floor_lamp
+      - light.floor_lamp
 
 - alias: 'Living room secondary lights toggle'
   trigger:
   - platform: event
-    event_type: xiaomi_aqara.click
+    event_type: deconz_event
     event_data:
-      entity_id: binary_sensor.wall_switch_left_158d00023391a5
-      click_type: single
+      id: lr_dummy_main
+      event: 1002
   action:
     service: light.toggle
     entity_id:
-      - light.small_table_lamp
+      - light.shelf_lamp
       - light.table_lamp
-      - light.barcalounger_floor_lamp
+      - light.armchair_lamp
 
-- alias: 'Doorbell'
-  trigger:
-  - platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.wall_switch_158d00013ff43e
-      click_type: single
-  action:
-    - service: xiaomi_aqara.play_ringtone
-      data:
-        gw_mac: 34:CE:00:85:3B:6B
-        ringtone_id: 10
-        ringtone_vol: 80
+# - alias: 'Doorbell'
+#   trigger:
+#   - platform: event
+#     event_type: xiaomi_aqara.click
+#     event_data:
+#       entity_id: binary_sensor.wall_switch_158d00013ff43e
+#       click_type: single
+#   action:
+#     - service: xiaomi_aqara.play_ringtone
+#       data:
+#         gw_mac: 34:CE:00:85:3B:6B
+#         ringtone_id: 10
+#         ringtone_vol: 80
 
 # - alias: 'Dresser toggle'
 #   trigger:
