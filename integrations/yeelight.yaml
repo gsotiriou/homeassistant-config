@@ -1,74 +1,68 @@
 devices:
-  # 192.168.1.151:
-  #   name: Dresser
-  #   transition: 1500
-  #   save_on_change: false
-  192.168.1.248:
-    name: George's bedside lamp
-    transition: 1500
-    save_on_change: false
-  192.168.1.169:
-    name: Vivian's bedside lamp
-    transition: 1500
-    save_on_change: false
-  192.168.1.165:
-    name: Ceiling spotlight 3
-    transition: 100
-    save_on_change: false
-  192.168.1.208:
-    name: Ceiling spotlight 1
-    transition: 100
-    save_on_change: false
-  192.168.1.24:
-    name: Corner floor lamp
-    transition: 1500
-    save_on_change: false
-  192.168.1.161:
-    name: Hallway light
-    transition: 100
-    save_on_change: false
-  192.168.1.117:
-    name: Sink lightstrip
-    transition: 1500
-    save_on_change: false
-  192.168.1.172:
-    name: George's desk lightstrip
-    transition: 1500
-    save_on_change: false
-  192.168.1.163:
-    name: TV lightstrip
-    transition: 1500
-    save_on_change: false
-  # 192.168.1.243:
-  #   name: Bed
-  #   transition: 1500
-  #   save_on_change: false
-  192.168.1.166:
-    name: Vivian's desk lightstrip
-    transition: 1500
-    save_on_change: false
-  192.168.1.145:
-    name: Ceiling spotlight 2
-    transition: 100
-    save_on_change: false
-  192.168.1.26:
-    name: Small table lamp
-    transition: 1500
-    save_on_change: false
-  192.168.1.27:
-    name: Barcalounger floor lamp
-    transition: 1500
-    save_on_change: false
-  192.168.1.29:
-    name: Table lamp
-    transition: 1500
-    save_on_change: false
-  192.168.1.128:
-    name: Front door light
-    transition: 100
-    save_on_change: false
-  # 192.168.1.23:
+  # 192.168.1.57:
   #   name: Bed head
-  #   transition: 1500
-  #   model: NOT SUPPLIED
   #   save_on_change: false
+
+  # 192.168.1.58:
+  #   name: Dresser
+  #   save_on_change: false
+
+  192.168.1.59:
+    name: George's bedside lamp
+    save_on_change: false
+
+  192.168.1.60:
+    name: Vivian's bedside lamp
+    save_on_change: false
+
+  192.168.1.61:
+    name: Sink lightstrip
+    save_on_change: false
+
+  192.168.1.62:
+    name: TV lightstrip
+    save_on_change: false
+
+  192.168.1.63:
+    name: Armchair lamp
+    save_on_change: false
+
+  192.168.1.64:
+    name: Shelf lamp
+    save_on_change: false
+
+  192.168.1.65:
+    name: Floor lamp
+    save_on_change: false
+
+  192.168.1.66:
+    name: Table lamp
+    save_on_change: false
+
+  192.168.1.67:
+    name: George's desk lightstrip
+    save_on_change: false
+
+  192.168.1.68:
+    name: Vivian's desk lightstrip
+    save_on_change: false
+
+  192.168.1.69:
+    name: Front door light
+    save_on_change: false
+
+  192.168.1.70:
+    name: Hallway light
+    save_on_change: false
+
+  192.168.1.71:
+    name: Ceiling spotlight 1
+    save_on_change: false
+
+  192.168.1.72:
+    name: Ceiling spotlight 2
+    save_on_change: false
+
+  192.168.1.73:
+    name: Ceiling spotlight 3
+    save_on_change: false
