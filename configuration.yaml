@@ -15,12 +15,10 @@ lovelace:
 
 ios:                 !include integrations/ios_push.yaml
 tts:                 !include integrations/google_text_to_speach.yaml
-http:                !include integrations/http.yaml
 alert:               !include integrations/alerts.yaml
 group:               !include groups.yaml
 camera:              !include integrations/camera.yaml
 script:              !include scripts.yaml
-homekit:             !include assistants/siri.yaml
 climate:             !include integrations/climate.yaml
 yeelight:            !include integrations/yeelight.yaml
 input_text:          !include integrations/input_texts.yaml
