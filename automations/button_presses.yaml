@@ -25,6 +25,17 @@
       - light.table_lamp
       - light.armchair_lamp
 
+- alias: 'Bedroom dresser light toggle'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: bdrm_dummy_main_vivian
+      event: 1002
+  action:
+    service: light.toggle
+    entity_id: light.dresser
+
 # - alias: 'Doorbell'
 #   trigger:
 #   - platform: event
@@ -38,14 +49,3 @@
 #         gw_mac: 34:CE:00:85:3B:6B
 #         ringtone_id: 10
 #         ringtone_vol: 80
-
-# - alias: 'Dresser toggle'
-#   trigger:
-#   - platform: event
-#     event_type: xiaomi_aqara.click
-#     event_data:
-#       entity_id: binary_sensor.wall_switch_158d0001576456
-#       click_type: single
-#   action:
-#     service: light.toggle
-#     entity_id: light.dresser
