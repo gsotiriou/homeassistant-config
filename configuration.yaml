@@ -30,7 +30,6 @@ input_boolean:       !include integrations/input_booleans.yaml
 google_assistant:    !include assistants/google.yaml
 circadian_lighting:  !include integrations/circadian.yaml
 alarm_control_panel: !include integrations/alarm_cpanel.yaml
-vacuum:              !include integrations/vacuum.yaml
 light:               !include_dir_merge_list lights/
 notify:              !include_dir_merge_list notifiers/
 switch:              !include_dir_merge_list switches/
